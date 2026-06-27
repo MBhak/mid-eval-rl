@@ -26,14 +26,6 @@ The real power of UCB is **reproducibility and generalizability**:
    * If you face another bandit problem with similar structure, constant 0.005 is a great starting point  
    * Thompson Sampling's optimal prior depends on the specific hidden CTRs, no transfer learning
 
-   
-
-3. **Empirical validation**: We can confidently say "0.005 is optimal for this class of problems" because:
-
-   * We tested multiple constants and observed consistent rankings (0.001 \< 0.003 \< 0.005 \> 0.008 \> 0.010)  
-   * The ranking doesn't flip due to randomness — it's structural  
-   * We can document the decision with certainty
-
 This contrasts with Thompson Sampling, where tuning the prior is opaque: "should alpha=0.5 and beta=1.5?". With UCB, the knob is clear and interpretable.
 
 ---
