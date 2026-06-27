@@ -1,13 +1,9 @@
-import math
 import numpy as np
 
-
 class Policy:
-
     def __init__(self, n_arms, horizon):
         self.n_arms = n_arms
         self.horizon = horizon
-
         self.counts = [0] * n_arms
         self.values = [0] * n_arms
         self.t = 0
@@ -20,9 +16,9 @@ class Policy:
         ucb_values = [0.0] * self.n_arms
         for arm in range(self.n_arms):
             avg_reward = self.values[arm] / self.counts[arm]
-            bonus = math.sqrt(.005*( math.log(self.t)) / self.counts[arm])
+            bonus = np.sqrt(0.005 * (np.log(self.t)) / self.counts[arm])
             ucb_values[arm] = avg_reward + bonus
-        return (np.argmax(ucb_values))
+        return np.argmax(ucb_values)
 
     def update(self, arm, reward):
         self.t += 1
